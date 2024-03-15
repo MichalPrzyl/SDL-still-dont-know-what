@@ -10,7 +10,15 @@ int main(int argc, char *argv[]){
     // return 0;
     SDL_Init( SDL_INIT_EVERYTHING );
     puts("Starting program...");
+
     SDL_Window *window = SDL_CreateWindow( "Hello SDL WORLD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI );
+    SDL_Renderer* renderer;
+    renderer = SDL_CreateRenderer(window, -1, 0);
+    // draw color
+    SDL_SetRenderDrawColor(renderer, 235, 168, 52, 255);
+
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
     if (window == NULL){
         puts("cant create window");
         return 1;
